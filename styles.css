@@ -1,0 +1,276 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Main black background */
+    color: #fff; /* White text color */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Fixed Header and Navigation */
+.button-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a; /* Dark gray */
+    padding: 10px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.button {
+    margin: 0 15px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Blue */
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.5);
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loading-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader {
+    border: 8px solid #333;
+    border-top: 8px solid #007BFF;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #000 40%, #007BFF);
+    color: #007BFF;
+    text-align: center;
+    padding: 70px 20px;
+    margin-top: 60px; /* Adjust for fixed header */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.tagline {
+    font-size: 2.8em;
+    margin: 20px 0;
+    animation: slideIn 1s ease-in-out;
+}
+
+.join-button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    transition: transform 0.4s, background-color 0.3s;
+}
+
+.join-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.08);
+}
+
+/* Sections */
+.about, .features, .testimonials, .contact {
+    background-color: #111;
+    padding: 40px;
+    margin: 30px auto;
+    border-radius: 10px;
+    max-width: 900px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    animation: slideIn 1s forwards;
+}
+
+.about h2, .features h2, .testimonials h2, .contact h2 {
+    color: #007BFF;
+    font-size: 2em;
+}
+
+.features li {
+    background-color: #007BFF;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.features li:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Contact Form */
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact input, .contact textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: #fff;
+}
+
+.contact button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    background-color: #111;
+    padding: 15px 0;
+    text-align: center;
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero .tagline {
+        font-size: 2em;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        margin-bottom: 10px;
+    }
+}
+
+section {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+section[style*="display: block"] {
+    opacity: 1;
+}
+
+.side-button {
+    position: fixed;
+    top: 50%; /* Position in the middle vertically */
+    right: 10px; /* Align to the right side */
+    transform: translateY(-50%);
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White icon/text */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    width: 30px; /* Small size */
+    height: 30px; /* Small size */
+    text-align: center;
+    line-height: 30px; /* Center the icon/text vertically */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.4);
+    cursor: pointer;
+    font-size: 16px; /* Small but readable */
+    z-index: 1000; /* Make sure it stays above other elements */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.side-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.1);
+}
+
+@keyframes backgroundSlide {
+    0% { background-position: 200% 0; }
+    50% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+.hero {
+    background: linear-gradient(to right, #000, #007BFF);
+    background-size: 200% 100%;
+    animation: backgroundSlide 12s infinite alternate;
+    text-align: center;
+    padding: 70px 20px;
+    margin-top: 60px; 
+}
+
+@keyframes textSlide {
+    0% { background-position: 200% 0; }
+    50% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+.tagline {
+    font-size: 2.8em;
+    margin: 20px 0;
+    background: linear-gradient(to right, #007BFF, #fff, #000);
+    background-size: 200% 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: textSlide 12s infinite alternate;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
